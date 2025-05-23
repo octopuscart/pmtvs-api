@@ -20,6 +20,15 @@
 </head>
 
 <body class="bg-light">
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="<?= base_url('/icons/favicon.svg') ?>" alt="Logo" width="40" height="40" class="me-2">
+                <span class="fw-bold">प्रदेश मवासी ठाकुर विकास समिति</span>
+            </a>
+        </div>
+    </nav>
     <div class="container mt-5">
         <h2 class="mb-4 text-center">सदास्यो की सुची</h2>
         <div class="row row-cols-1 row-cols-md-3 g-4">
