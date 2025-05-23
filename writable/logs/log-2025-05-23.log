@@ -1,0 +1,119 @@
+ERROR - 2025-05-23 12:11:53 --> Error connecting to the database: ErrorException: mysqli::real_connect(): Error while reading greeting packet. PID=17760 in D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', 'D:\\wamp64\\www\\p...', 201)
+#1 D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'j2k5e6r5_octopu...', Object(SensitiveParameterValue), 'j2k5e6r5_pmtvs', 3306, '', 0)
+#2 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#4 D:\wamp64\www\pmtvs\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#5 D:\wamp64\www\pmtvs\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#6 D:\wamp64\www\pmtvs\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#7 D:\wamp64\www\pmtvs\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#8 D:\wamp64\www\pmtvs\app\Controllers\Api.php(40): CodeIgniter\Model->insert(Array)
+#9 D:\wamp64\www\pmtvs\system\CodeIgniter.php(933): App\Controllers\Api->createMember()
+#10 D:\wamp64\www\pmtvs\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+#11 D:\wamp64\www\pmtvs\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 D:\wamp64\www\pmtvs\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#13 D:\wamp64\www\pmtvs\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 D:\wamp64\www\pmtvs\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 {main}
+
+Next mysqli_sql_exception: MySQL server has gone away in D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'j2k5e6r5_octopu...', Object(SensitiveParameterValue), 'j2k5e6r5_pmtvs', 3306, '', 0)
+#1 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\wamp64\www\pmtvs\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#4 D:\wamp64\www\pmtvs\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\wamp64\www\pmtvs\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 D:\wamp64\www\pmtvs\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\wamp64\www\pmtvs\app\Controllers\Api.php(40): CodeIgniter\Model->insert(Array)
+#8 D:\wamp64\www\pmtvs\system\CodeIgniter.php(933): App\Controllers\Api->createMember()
+#9 D:\wamp64\www\pmtvs\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+#10 D:\wamp64\www\pmtvs\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\wamp64\www\pmtvs\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 D:\wamp64\www\pmtvs\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\wamp64\www\pmtvs\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: MySQL server has gone away in D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\wamp64\www\pmtvs\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#3 D:\wamp64\www\pmtvs\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#4 D:\wamp64\www\pmtvs\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#5 D:\wamp64\www\pmtvs\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#6 D:\wamp64\www\pmtvs\app\Controllers\Api.php(40): CodeIgniter\Model->insert(Array)
+#7 D:\wamp64\www\pmtvs\system\CodeIgniter.php(933): App\Controllers\Api->createMember()
+#8 D:\wamp64\www\pmtvs\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+#9 D:\wamp64\www\pmtvs\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\wamp64\www\pmtvs\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 D:\wamp64\www\pmtvs\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 D:\wamp64\www\pmtvs\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-05-23 12:11:53 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: MySQL server has gone away
+[Method: POST, Route: api/create-member]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `members` (`name`, `position`, `address`, `image`) VALUES (:name:, :position:, :address:, :image:)', [...], false)
+ 3 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 6 APPPATH\Controllers\Api.php(40): CodeIgniter\Model->insert([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->createMember()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-05-23 12:12:19 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'j2k5e6r5_octopu...', Object(SensitiveParameterValue), 'j2k5e6r5_pmtvs', 3306, '', 0)
+#1 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\wamp64\www\pmtvs\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#4 D:\wamp64\www\pmtvs\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\wamp64\www\pmtvs\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 D:\wamp64\www\pmtvs\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\wamp64\www\pmtvs\app\Controllers\Api.php(40): CodeIgniter\Model->insert(Array)
+#8 D:\wamp64\www\pmtvs\system\CodeIgniter.php(933): App\Controllers\Api->createMember()
+#9 D:\wamp64\www\pmtvs\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+#10 D:\wamp64\www\pmtvs\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\wamp64\www\pmtvs\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 D:\wamp64\www\pmtvs\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\wamp64\www\pmtvs\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\wamp64\www\pmtvs\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `me...', Array, false)
+#3 D:\wamp64\www\pmtvs\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#4 D:\wamp64\www\pmtvs\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#5 D:\wamp64\www\pmtvs\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#6 D:\wamp64\www\pmtvs\app\Controllers\Api.php(40): CodeIgniter\Model->insert(Array)
+#7 D:\wamp64\www\pmtvs\system\CodeIgniter.php(933): App\Controllers\Api->createMember()
+#8 D:\wamp64\www\pmtvs\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+#9 D:\wamp64\www\pmtvs\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\wamp64\www\pmtvs\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 D:\wamp64\www\pmtvs\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 D:\wamp64\www\pmtvs\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-05-23 12:12:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: POST, Route: api/create-member]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(620): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `members` (`name`, `position`, `address`, `image`) VALUES (:name:, :position:, :address:, :image:)', [...], false)
+ 3 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 4 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 5 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 6 APPPATH\Controllers\Api.php(40): CodeIgniter\Model->insert([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->createMember()
+ 8 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 9 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
