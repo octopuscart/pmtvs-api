@@ -16,7 +16,19 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost:8080/';
+    public string $baseURL = 'https://pmtvs.in/';
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        if (
+            isset($_SERVER['HTTP_HOST']) &&
+            ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.1')
+        ) {
+            $this->baseURL = 'http://localhost:8080/'; // or your local URL/port
+        }
+    }
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

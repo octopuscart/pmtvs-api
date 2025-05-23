@@ -1,5 +1,6 @@
-AddHandler application/x-httpd-php83 .php
+
 <IfModule mod_rewrite.c>
+    AddHandler application/x-httpd-php83 .php
     RewriteEngine On
     RewriteBase /
 
@@ -16,7 +17,7 @@ AddHandler application/x-httpd-php83 .php
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    ErrorDocument 404 https://www.islamictrusthk.org/404
+    ErrorDocument 404 https://pmtvs.in/404
 
 </IfModule>
 
