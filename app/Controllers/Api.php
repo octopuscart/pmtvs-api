@@ -13,21 +13,11 @@ class Api extends ResourceController
             'name' => 'required',
             'position' => 'required',
             'address' => 'required',
-            'image' => [
-                'rules' => 'uploaded[image]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png,image/gif]|max_size[image,4096]',
-                'errors' => []
-            ],
+            'image'=> 'required',
         ];
 
         if (!$this->validate($validationRule)) {
             return $this->fail($this->validator->getErrors(), 400);
-        }
-
-        $img = $this->request->getFile('image');
-        $newName = null;
-        if ($img->isValid() && !$img->hasMoved()) {
-            $newName = $img->getRandomName();
-            $img->move(ROOTPATH . 'public/uploads', $newName);
         }
 
         $userModel = new \App\Models\UserModel();
@@ -35,7 +25,7 @@ class Api extends ResourceController
             'name' => $this->request->getPost('name'),
             'position' => $this->request->getPost('position'),
             'address' => $this->request->getPost('address'),
-            'image' => $newName
+            'image' => $this->request->getPost('image'),
         ];
         $userModel->insert($data);
 
@@ -53,8 +43,36 @@ class Api extends ResourceController
     public function listMembers()
     {
         $userModel = new \App\Models\UserModel();
-        $members = $userModel->findAll();
+        $members = $userModel->orderBy('id', 'DESC')->findAll();
 
         return view('list_members', ['members' => $members]);
+    }
+    public function uploadImage()
+    {
+        helper(['form', 'url']);
+
+        $validationRule = [
+            'image' => [
+                'rules' => 'uploaded[image]|is_image[image]|mime_in[image,image/jpg,image/jpeg,image/png,image/gif]|max_size[image,4096]',
+                'errors' => []
+            ],
+        ];
+
+        if (!$this->validate($validationRule)) {
+            return $this->fail($this->validator->getErrors(), 400);
+        }
+
+        $img = $this->request->getFile('image');
+        $newName = null;
+        if ($img->isValid() && !$img->hasMoved()) {
+            $newName = $img->getRandomName();
+            $img->move(ROOTPATH . 'public/uploads', $newName);
+        }
+
+        return $this->respond([
+            'success' => true,
+            'image' => $newName,
+            'url' => base_url('uploads/' . $newName)
+        ]);
     }
 }

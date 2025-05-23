@@ -8,3 +8,4 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->post('api/create-member', 'Api::createMember');
 $routes->get('create-member', 'Api::showCreateMemberForm');
+$routes->post('api/upload-image', 'Api::uploadImage');
