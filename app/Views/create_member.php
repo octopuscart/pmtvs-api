@@ -13,7 +13,7 @@
                         <h4 class="mb-0">Create Member</h4>
                     </div>
                     <div class="card-body">
-                        <form id="memberForm" enctype="multipart/form-data" method="post" action="<?= site_url('create-member') ?>">
+                        <form id="memberForm" enctype="multipart/form-data" method="post" action="<?= site_url('api/create-member') ?>">
                             <div class="mb-3">
                                 <label class="form-label">Name:</label>
                                 <input type="text" name="name" class="form-control" required>
@@ -44,7 +44,7 @@
         e.preventDefault();
         const form = e.target;
         const data = new FormData(form);
-        const response = await fetch("<?= site_url("create-member")?>", {
+        const response = await fetch("<?= site_url("api/create-member")?>", {
             method: 'POST',
             body: data
         });
@@ -58,7 +58,7 @@
             resultDiv.className = "alert alert-success";
             resultDiv.textContent = 'Member created successfully!';
             if (result.data && result.data.image) {
-                imageDiv.innerHTML = `<p>Uploaded Image:</p><img src="/uploads/${result.data.image}" class="img-thumbnail" width="200">`;
+                imageDiv.innerHTML = `<p>Uploaded Image:</p><img src="<?= base_url("/uploads/");?>${result.data.image}" class="img-thumbnail" width="200">`;
             }
         } else {
             resultDiv.className = "alert alert-danger";
