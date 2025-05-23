@@ -6,6 +6,9 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('welcome_message');
+        $userModel = new \App\Models\UserModel();
+        $members = $userModel->orderBy('id', 'DESC')->findAll();
+        return view('member_list', ['members' => $members]);
+
     }
 }
