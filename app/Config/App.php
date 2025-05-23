@@ -18,6 +18,17 @@ class App extends BaseConfig
      */
     public string $baseURL = 'https://pmtvs.in/';
 
+    /**
+     * --------------------------------------------------------------------------
+     * Index File
+     * --------------------------------------------------------------------------
+     *
+     * Typically, this will be your `index.php` file, unless you've renamed it to
+     * something else. If you have configured your web server to remove this file
+     * from your site URIs, set this variable to an empty string.
+     */
+    public string $indexPage = 'index.php';
+
     public function __construct()
     {
         parent::__construct();
@@ -27,6 +38,10 @@ class App extends BaseConfig
             ($_SERVER['HTTP_HOST'] === 'localhost' || $_SERVER['HTTP_HOST'] === '127.0.0.1')
         ) {
             $this->baseURL = 'http://127.0.0.1:80/pmtvs/public'; // or your local URL/port
+            $this->indexPage = 'index.php';
+        } else {
+            $this->baseURL = 'https://pmtvs.in';
+            $this->indexPage = ''; // For production, remove index.php if you use .htaccess
         }
     }
 
@@ -43,16 +58,7 @@ class App extends BaseConfig
      */
     public array $allowedHostnames = [];
 
-    /**
-     * --------------------------------------------------------------------------
-     * Index File
-     * --------------------------------------------------------------------------
-     *
-     * Typically, this will be your `index.php` file, unless you've renamed it to
-     * something else. If you have configured your web server to remove this file
-     * from your site URIs, set this variable to an empty string.
-     */
-    public string $indexPage = 'index.php';
+
 
     /**
      * --------------------------------------------------------------------------
