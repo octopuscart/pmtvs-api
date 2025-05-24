@@ -39,7 +39,7 @@
                         <div class="card h-100 shadow-sm">
                             <?php if ($member['image']): ?>
                                 <img src="<?= base_url('uploads/' . $member['image']) ?>" class="card-img-top"
-                                    alt="<?= esc($member['name']) ?>" style="height:200px;object-fit:cover;">
+                                    alt="<?= esc($member['name']) ?>" style="height:200px;object-fit:contain;">
                             <?php else: ?>
                                 <img src="https://via.placeholder.com/200x200?text=No+Image" class="card-img-top" alt="No Image">
                             <?php endif; ?>
