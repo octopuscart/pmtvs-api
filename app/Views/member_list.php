@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Pradesh Mavasi Thakur Vikas Samiti</title>
-    <meta name="description" content="The small framework with powerful features">
+    <meta name="description" content="प्रदेश मवासी ठाकुर विकास समिति (Pradesh Mavasi Thakur Vikas Samiti) is a community organization dedicated to the welfare, unity, and development of the Thakur community. View member directory, activities, and updates.">
+    <meta name="keywords" content="Thakur Samiti, Pradesh Mavasi, Thakur Vikas Samiti, Community, Member Directory, Social Organization, Thakur Welfare, Thakur Community, विकास समिति, समाज, सदस्य सूची">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/png" href="/public/icons/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
