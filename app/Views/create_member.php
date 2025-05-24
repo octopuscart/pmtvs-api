@@ -110,7 +110,10 @@
 
             if (result.success) {
                 resultDiv.className = "alert alert-success";
-                resultDiv.textContent = 'Member created successfully!';
+                resultDiv.textContent = 'Member created successfully! Refreshing...';
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1500); // Refresh after 1.5 seconds
             } else {
                 resultDiv.className = "alert alert-danger";
                 if (result.messages) {
