@@ -13,7 +13,7 @@ class Api extends ResourceController
             'name' => 'required',
             'position' => 'required',
             'address' => 'required',
-            'image'=> 'required',
+            'image' => 'required',
         ];
 
         if (!$this->validate($validationRule)) {
@@ -47,6 +47,17 @@ class Api extends ResourceController
 
         return view('list_members', ['members' => $members]);
     }
+    public function membersListApi()
+    {
+        $userModel = new \App\Models\UserModel();
+        $members = $userModel->orderBy('id', 'DESC')->findAll();
+
+        return $this->respond([
+            'success' => true,
+            'members' => $members
+        ]);
+    }
+
     public function uploadImage()
     {
         helper(['form', 'url']);
