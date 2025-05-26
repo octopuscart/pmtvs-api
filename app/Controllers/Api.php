@@ -49,9 +49,19 @@ class Api extends ResourceController
     }
     public function membersListApi()
     {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            exit(0);
+        }
         $userModel = new \App\Models\UserModel();
         $members = $userModel->orderBy('id', 'DESC')->findAll();
-
+        foreach ($members as &$member) {
+            $member['image_url'] = $member['image']
+                ? base_url('uploads/' . $member['image'])
+                : null;
+        }
         return $this->respond([
             'success' => true,
             'members' => $members
