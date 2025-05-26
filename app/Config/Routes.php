@@ -9,3 +9,4 @@ $routes->get('/', 'Home::index');
 $routes->post('api/create-member', 'Api::createMember');
 $routes->get('create-member', 'Api::showCreateMemberForm');
 $routes->post('api/upload-image', 'Api::uploadImage');
+$routes->get('api/members', 'Api::membersListApi');
