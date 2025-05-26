@@ -17,7 +17,7 @@
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    ErrorDocument 404 https://pmtvs.in/404
+    ErrorDocument 404 https://api.pmtvs.in/404
 
 </IfModule>
 

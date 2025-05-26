@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'https://pmtvs.in/';
+    public string $baseURL = 'https://api.pmtvs.in/';
 
     /**
      * --------------------------------------------------------------------------
@@ -40,7 +40,7 @@ class App extends BaseConfig
             $this->baseURL = 'http://127.0.0.1:80/pmtvs/public'; // or your local URL/port
             $this->indexPage = 'index.php';
         } else {
-            $this->baseURL = 'https://pmtvs.in';
+            $this->baseURL = 'https://api.pmtvs.in';
             $this->indexPage = ''; // For production, remove index.php if you use .htaccess
         }
     }
