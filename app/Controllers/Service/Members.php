@@ -23,8 +23,8 @@ class Members extends Controller
     public function showUpdateMemberForm($id = 0)
     {
         $userModel = new UserModel();
-        $positions = (new PositionsModel())->orderBy('title', 'ASC')->findAll();
-        $categories = (new PositionCategoryModel())->orderBy('title', 'ASC')->findAll();
+        $positions = (new PositionsModel())->orderBy('display_index', 'ASC')->findAll();
+        $categories = (new PositionCategoryModel())->orderBy('display_index', 'ASC')->findAll();
         $member = $userModel->find($id);
         if (!$member) {
             $member = [
