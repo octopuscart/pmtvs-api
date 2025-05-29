@@ -7,6 +7,6 @@ class UserModel extends Model
     protected $table      = 'members';
     protected $primaryKey = 'id';
 
-    protected $allowedFields = ['name', 'position', 'address', 'image'];
+    protected $allowedFields = ['name', 'position_id', 'position_category_id', 'address', 'image'];
     protected $useTimestamps = false;
 }

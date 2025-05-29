@@ -7,11 +7,18 @@ class Api extends ResourceController
 {
     public function createMember()
     {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            exit(0);
+        }
         helper(['form', 'url']);
 
         $validationRule = [
             'name' => 'required',
-            'position' => 'required',
+            'position_id' => 'required',
+            'position_category_id' => 'required',
             'address' => 'required',
             'image' => 'required',
         ];
@@ -21,33 +28,35 @@ class Api extends ResourceController
         }
 
         $userModel = new \App\Models\UserModel();
+        $id = $this->request->getPost('id');
+
         $data = [
             'name' => $this->request->getPost('name'),
-            'position' => $this->request->getPost('position'),
+            'position_id' => $this->request->getPost('position_id'),
+            'position_category_id' => $this->request->getPost('position_category_id'),
             'address' => $this->request->getPost('address'),
             'image' => $this->request->getPost('image'),
         ];
-        $userModel->insert($data);
 
+        if ($id) {
+            // Update existing member
+            $userModel->update($id, $data);
+            $message = 'Member updated successfully';
+        } else {
+            // Create new member
+            $userModel->insert($data);
+            $id = $userModel->getInsertID();
+            $message = 'Member created successfully';
+        }
         return $this->respond([
             'success' => true,
+            'message' => $message,
+            'id' => $id,
             'data' => $data
         ]);
     }
 
-    public function showCreateMemberForm()
-    {
-        return view('create_member');
-    }
-
-    public function listMembers()
-    {
-        $userModel = new \App\Models\UserModel();
-        $members = $userModel->orderBy('id', 'DESC')->findAll();
-
-        return view('list_members', ['members' => $members]);
-    }
-    public function membersListApi()
+    public function membersListApi($category_position_id=1)
     {
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
@@ -55,8 +64,16 @@ class Api extends ResourceController
         if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
             exit(0);
         }
-        $userModel = new \App\Models\UserModel();
-        $members = $userModel->orderBy('id', 'DESC')->findAll();
+        $db = \Config\Database::connect();
+        // Assuming members table has position_id and positions table has category_id
+        $builder = $db->table('members');
+        $builder->select('members.*, positions.title as position_title, position_category.title as category_title');
+        $builder->join('positions', 'positions.id = members.position_id', 'left');
+        $builder->join('position_category', 'position_category.id = members.position_category_id', 'left');
+               $builder->orderBy('positions.display_index', 'ASC');
+        $builder->where('position_category.id', $category_position_id);
+        $members = $builder->get()->getResultArray();
+
         foreach ($members as &$member) {
             $member['image_url'] = $member['image']
                 ? base_url('uploads/' . $member['image'])
@@ -94,6 +111,37 @@ class Api extends ResourceController
             'success' => true,
             'image' => $newName,
             'url' => base_url('uploads/' . $newName)
+        ]);
+    }
+    public function getPositions()
+    {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            exit(0);
+        }
+
+        $positions = (new \App\Models\PositionsModel())->orderBy('display_index', 'ASC')->findAll();
+        return $this->respond([
+            'success' => true,
+            'positions' => $positions
+        ]);
+    }
+
+    public function getPositionCategories()
+    {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            exit(0);
+        }
+
+        $categories = (new \App\Models\PositionCategoryModel())->orderBy('display_index', 'ASC')->findAll();
+        return $this->respond([
+            'success' => true,
+            'categories' => $categories
         ]);
     }
 }

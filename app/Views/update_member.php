@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html>
+<?= $this->include('layout/headers') ?>
 
-<head>
-    <title>Create Member</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body class="bg-light">
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card shadow">
                     <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">Create Member</h4>
+                        <h4 class="mb-0"><?= isset($member) ? 'Update' : 'Create' ?> Member</h4>
                     </div>
                     <div class="card-body">
                         <!-- Image Upload Form -->
@@ -20,28 +13,57 @@
                             <div class="mb-3">
                                 <label class="form-label">Image:</label>
                                 <input type="file" name="image" id="imageInput" class="form-control" accept="image/*"
-                                    required>
+                                    <?= isset($member) && $member['image'] ? '' : 'required' ?>>
                             </div>
                             <button type="submit" class="btn btn-secondary mb-3">Upload Image</button>
                         </form>
                         <div id="imageUploadResult" class="mb-3"></div>
-                        <div id="uploadedImage" class="mb-3"></div>
-                        <!-- Member Creation Form -->
+                        <div id="uploadedImage" class="mb-3">
+                            <?php if (isset($member) && $member['image']): ?>
+                            <img src="<?= base_url('uploads/' . $member['image']) ?>" class="img-thumbnail" width="200">
+                            <?php endif; ?>
+                        </div>
+                        <!-- Member Form -->
                         <form id="memberForm" method="post" action="<?= site_url('api/create-member') ?>">
-                            <input type="hidden" name="image" id="hiddenImageField">
+                            <?php if (isset($member)): ?>
+                            <input type="hidden" name="id" value="<?= esc($member['id']) ?>">
+                            <?php endif; ?>
+                            <input type="hidden" name="image" id="hiddenImageField"
+                                value="<?= isset($member) ? esc($member['image']) : '' ?>">
                             <div class="mb-3">
                                 <label class="form-label">Name:</label>
-                                <input type="text" name="name" class="form-control" required>
+                                <input type="text" name="name" class="form-control"
+                                    value="<?= isset($member) ? esc($member['name']) : '' ?>" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Position:</label>
-                                <input type="text" name="position" class="form-control" required>
+                                <select name="position_id" class="form-control" required>
+                                    <option value="">Select Position</option>
+                                    <?php foreach ($positions as $pos): ?>
+                                    <option value="<?= $pos['id'] ?>" <?= (isset($member) && $member['position_id'] == $pos['id']) ? 'selected' : '' ?>>
+                                        <?= esc($pos['title']) ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Position Category:</label>
+                                <select name="position_category_id" class="form-control" required>
+                                    <option value="">Select Category</option>
+                                    <?php foreach ($categories as $cat): ?>
+                                    <option value="<?= $cat['id'] ?>" <?= (isset($member) && $member['position_category_id'] == $cat['id']) ? 'selected' : '' ?>>
+                                        <?= esc($cat['title']) ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Address:</label>
-                                <input type="text" name="address" class="form-control" required>
+                                <input type="text" name="address" class="form-control"
+                                    value="<?= isset($member) ? esc($member['address']) : '' ?>" required>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Submit</button>
+                            <button type="submit" class="btn btn-primary w-100"><?= isset($member) ? 'Update' : 'Create' ?>
+                                Member</button>
                         </form>
                         <div id="result" class="mt-3"></div>
                     </div>
@@ -59,7 +81,6 @@
             const imageDiv = document.getElementById('uploadedImage');
             resultDiv.textContent = '';
             imageDiv.innerHTML = '';
-            document.getElementById('hiddenImageField').value = '';
 
             const response = await fetch("<?= site_url('api/upload-image') ?>", {
                 method: 'POST',
@@ -88,7 +109,7 @@
             }
         };
 
-        // Handle member creation
+        // Handle member create/update
         document.getElementById('memberForm').onsubmit = async function (e) {
             e.preventDefault();
             const form = e.target;
@@ -110,10 +131,10 @@
 
             if (result.success) {
                 resultDiv.className = "alert alert-success";
-                resultDiv.textContent = 'Member created successfully! Refreshing...';
+                resultDiv.textContent = 'Member <?= isset($member) ? "updated" : "created" ?> successfully! Redirecting...';
                 setTimeout(() => {
-                    window.location.reload();
-                }, 1500); // Refresh after 1.5 seconds
+                    // window.location.href = "<?= site_url('members/list') ?>";
+                }, 1500);
             } else {
                 resultDiv.className = "alert alert-danger";
                 if (result.messages) {
@@ -136,6 +157,5 @@
             }
         };
     </script>
-</body>
 
-</html>
+    <?= $this->include('layout/footer') ?>
