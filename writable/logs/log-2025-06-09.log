@@ -1,0 +1,178 @@
+CRITICAL - 2025-06-09 12:01:55 --> Error: Class "App\Models\DailyPostModel" not found
+[Method: GET, Route: api/list-daily-posts]
+in APPPATH\Controllers\Api.php on line 212.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->listDailyPosts()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-09 12:02:09 --> Error: Class "App\Models\DailyPostModel" not found
+[Method: GET, Route: api/list-daily-posts]
+in APPPATH\Controllers\Api.php on line 212.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->listDailyPosts()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-09 12:03:07 --> Error: Class "App\Models\DailyPostModel" not found
+[Method: GET, Route: api/list-daily-posts]
+in APPPATH\Controllers\Api.php on line 212.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->listDailyPosts()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-09 12:03:37 --> Error: Class "App\Models\DailyPostModel" not found
+[Method: GET, Route: api/list-daily-posts]
+in APPPATH\Controllers\Api.php on line 212.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->listDailyPosts()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-09 12:05:38 --> Error: Class "App\Models\DailyPostModel" not found
+[Method: GET, Route: api/list-daily-posts]
+in APPPATH\Controllers\Api.php on line 212.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->listDailyPosts()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-09 12:09:28 --> Error: Class "App\Models\DailyPostModel" not found
+[Method: GET, Route: api/list-daily-posts]
+in APPPATH\Controllers\Api.php on line 212.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->listDailyPosts()
+ 2 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-06-09 12:16:53 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `da...', 0)
+#1 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `da...')
+#2 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `da...')
+#3 D:\wamp64\www\pmtvs\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `da...', Array, false)
+#4 D:\wamp64\www\pmtvs\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\wamp64\www\pmtvs\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 D:\wamp64\www\pmtvs\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\wamp64\www\pmtvs\app\Controllers\Api.php(187): CodeIgniter\Model->insert(Array)
+#8 D:\wamp64\www\pmtvs\system\CodeIgniter.php(933): App\Controllers\Api->createDailyPost()
+#9 D:\wamp64\www\pmtvs\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+#10 D:\wamp64\www\pmtvs\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\wamp64\www\pmtvs\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 D:\wamp64\www\pmtvs\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\wamp64\www\pmtvs\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-09 12:16:53 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'created_at' in 'field list'
+[Method: POST, Route: api/create-daily-post]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (:image:, :description:, :date:, :created_at:, :updated_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Api.php(187): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->createDailyPost()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-09 12:16:53 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'created_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (\'1749471410_d5dee96589f22d179206.jpg\', \'sdvfsda faf\', \'2025-06-09\', \'2025-06-09 12:16:53\', \'2025-06-09 12:16:53\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (\'1749471410_d5dee96589f22d179206.jpg\', \'sdvfsda faf\', \'2025-06-09\', \'2025-06-09 12:16:53\', \'2025-06-09 12:16:53\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (:image:, :description:, :date:, :created_at:, :updated_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Api.php(187): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->createDailyPost()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-09 12:16:53 --> [Caused by] mysqli_sql_exception: Unknown column 'created_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (\'1749471410_d5dee96589f22d179206.jpg\', \'sdvfsda faf\', \'2025-06-09\', \'2025-06-09 12:16:53\', \'2025-06-09 12:16:53\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (\'1749471410_d5dee96589f22d179206.jpg\', \'sdvfsda faf\', \'2025-06-09\', \'2025-06-09 12:16:53\', \'2025-06-09 12:16:53\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (\'1749471410_d5dee96589f22d179206.jpg\', \'sdvfsda faf\', \'2025-06-09\', \'2025-06-09 12:16:53\', \'2025-06-09 12:16:53\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (:image:, :description:, :date:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Api.php(187): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->createDailyPost()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-06-09 12:17:02 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 D:\wamp64\www\pmtvs\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `da...', 0)
+#1 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `da...')
+#2 D:\wamp64\www\pmtvs\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `da...')
+#3 D:\wamp64\www\pmtvs\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `da...', Array, false)
+#4 D:\wamp64\www\pmtvs\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\wamp64\www\pmtvs\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 D:\wamp64\www\pmtvs\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\wamp64\www\pmtvs\app\Controllers\Api.php(187): CodeIgniter\Model->insert(Array)
+#8 D:\wamp64\www\pmtvs\system\CodeIgniter.php(933): App\Controllers\Api->createDailyPost()
+#9 D:\wamp64\www\pmtvs\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+#10 D:\wamp64\www\pmtvs\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\wamp64\www\pmtvs\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 D:\wamp64\www\pmtvs\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 D:\wamp64\www\pmtvs\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-06-09 12:17:02 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'created_at' in 'field list'
+[Method: POST, Route: api/create-daily-post]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (:image:, :description:, :date:, :created_at:, :updated_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Api.php(187): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->createDailyPost()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-09 12:17:02 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'created_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (\'1749471410_d5dee96589f22d179206.jpg\', \'sdvfsda faf\', \'2025-06-09\', \'2025-06-09 12:17:01\', \'2025-06-09 12:17:01\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (\'1749471410_d5dee96589f22d179206.jpg\', \'sdvfsda faf\', \'2025-06-09\', \'2025-06-09 12:17:01\', \'2025-06-09 12:17:01\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (:image:, :description:, :date:, :created_at:, :updated_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Api.php(187): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->createDailyPost()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-06-09 12:17:02 --> [Caused by] mysqli_sql_exception: Unknown column 'created_at' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (\'1749471410_d5dee96589f22d179206.jpg\', \'sdvfsda faf\', \'2025-06-09\', \'2025-06-09 12:17:01\', \'2025-06-09 12:17:01\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (\'1749471410_d5dee96589f22d179206.jpg\', \'sdvfsda faf\', \'2025-06-09\', \'2025-06-09 12:17:01\', \'2025-06-09 12:17:01\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (\'1749471410_d5dee96589f22d179206.jpg\', \'sdvfsda faf\', \'2025-06-09\', \'2025-06-09 12:17:01\', \'2025-06-09 12:17:01\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `daily_posts` (`image`, `description`, `date`, `created_at`, `updated_at`) VALUES (:image:, :description:, :date:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Api.php(187): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Api->createDailyPost()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

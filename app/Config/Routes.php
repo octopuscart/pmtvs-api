@@ -14,8 +14,14 @@ $routes->post('position-categories/inline-edit', 'Service\PositionCategory::inli
 $routes->get('create-member', 'Service\Members::showUpdateMemberForm');
 $routes->get('update-member/(:num)', 'Service\Members::showUpdateMemberForm/$1');
 
-$routes->post('api/create-member', 'Api::createMember');
-$routes->post('api/upload-image', 'Api::uploadImage');
+$routes->get('list-post', 'Service\DailyPost::listPosts');
+$routes->get('create-post', 'Service\DailyPost::showUpdatePostForm');
+$routes->get('update-post/(:num)', 'Service\DailyPost::showUpdatePostForm/$1');
+
 $routes->get('api/members/(:num)', 'Api::membersListApi/$1');
 $routes->get('api/positions', 'Api::getPositions');
 $routes->get('api/position-categories', 'Api::getPositionCategories');
+$routes->get('api/list-daily-posts', 'Api::listDailyPosts');
+$routes->post('api/create-member', 'Api::createMember');
+$routes->post('api/upload-image', 'Api::uploadImage');
+$routes->post('api/create-daily-post', 'Api::createDailyPost');

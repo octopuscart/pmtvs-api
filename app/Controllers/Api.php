@@ -56,7 +56,7 @@ class Api extends ResourceController
         ]);
     }
 
-    public function membersListApi($category_position_id=1)
+    public function membersListApi($category_position_id = 1)
     {
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
@@ -70,7 +70,7 @@ class Api extends ResourceController
         $builder->select('members.*, positions.title as position_title, position_category.title as category_title');
         $builder->join('positions', 'positions.id = members.position_id', 'left');
         $builder->join('position_category', 'position_category.id = members.position_category_id', 'left');
-               $builder->orderBy('positions.display_index', 'ASC');
+        $builder->orderBy('positions.display_index', 'ASC');
         $builder->where('position_category.id', $category_position_id);
         $members = $builder->get()->getResultArray();
 
@@ -102,15 +102,19 @@ class Api extends ResourceController
 
         $img = $this->request->getFile('image');
         $newName = null;
+        // Determine folder based on 'type' parameter (default: 'uploads')
+        $type = $this->request->getGetPost('type'); // accepts GET or POST param
+        $folder = ($type === 'post') ? 'post_uploads' : 'uploads';
+
         if ($img->isValid() && !$img->hasMoved()) {
             $newName = $img->getRandomName();
-            $img->move(ROOTPATH . 'public/uploads', $newName);
+            $img->move(ROOTPATH . 'public/' . $folder, $newName);
         }
 
         return $this->respond([
             'success' => true,
             'image' => $newName,
-            'url' => base_url('uploads/' . $newName)
+            'url' => base_url($folder . '/' . $newName)
         ]);
     }
     public function getPositions()
@@ -142,6 +146,92 @@ class Api extends ResourceController
         return $this->respond([
             'success' => true,
             'categories' => $categories
+        ]);
+    }
+
+    public function createDailyPost()
+    {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            exit(0);
+        }
+        helper(['form', 'url']);
+
+        $validationRule = [
+            'image' => 'required',
+            'description' => 'required',
+            'date' => 'required|valid_date'
+        ];
+
+        if (!$this->validate($validationRule)) {
+            return $this->fail($this->validator->getErrors(), 400);
+        }
+
+        $model = new \App\Models\DailyPostModel();
+        $id = $this->request->getPost('id');
+
+        $data = [
+            'image' => $this->request->getPost('image'),
+            'description' => $this->request->getPost('description'),
+            'date' => $this->request->getPost('date'),
+        ];
+
+        if ($id) {
+            // Update existing post
+            $model->update($id, $data);
+            $message = 'Post updated successfully';
+        } else {
+            // Create new post
+            $model->insert($data);
+            $id = $model->getInsertID();
+            $message = 'Post created successfully';
+        }
+
+        return $this->respond([
+            'success' => true,
+            'message' => $message,
+            'id' => $id,
+            'data' => $data
+        ]);
+    }
+
+    public function listDailyPosts()
+    {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
+        if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+            exit(0);
+        }
+
+        $page = (int) ($this->request->getGet('page') ?? 1);
+        $perPage = (int) ($this->request->getGet('per_page') ?? 10);
+
+        $model = new \App\Models\DailyPostModel();
+
+        $total = $model->countAll();
+        $posts = $model
+            ->orderBy('date', 'DESC')
+            ->paginate($perPage, 'default', $page);
+
+        // Add full image URL
+        foreach ($posts as &$post) {
+            $post['image_url'] = $post['image']
+                ? base_url('post_uploads/' . $post['image'])
+                : null;
+        }
+
+        return $this->respond([
+            'success' => true,
+            'posts' => $posts,
+            'pagination' => [
+                'page' => $page,
+                'per_page' => $perPage,
+                'total' => $total,
+                'total_pages' => ceil($total / $perPage)
+            ]
         ]);
     }
 }

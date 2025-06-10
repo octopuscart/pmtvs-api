@@ -17,7 +17,7 @@ class Members extends Controller
         $userModel = new UserModel();
         $members = $userModel->orderBy('id', 'DESC')->findAll();
 
-        return view('list_members', ['members' => $members]);
+        return view('list_members');
     }
     // Show update member form
     public function showUpdateMemberForm($id = 0)
