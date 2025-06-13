@@ -214,6 +214,7 @@ class Api extends ResourceController
         $total = $model->countAll();
         $posts = $model
             ->orderBy('date', 'DESC')
+            ->orderBy('id', 'DESC')
             ->paginate($perPage, 'default', $page);
 
         // Add full image URL
