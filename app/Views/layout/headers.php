@@ -40,7 +40,7 @@
                         <a class="nav-link" href="<?= site_url('create-member') ?>">Create Member</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= site_url('create-member') ?>">Post List</a>
+                        <a class="nav-link" href="<?= site_url('list-post') ?>">Post List</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= site_url('create-post') ?>">Create post</a>
