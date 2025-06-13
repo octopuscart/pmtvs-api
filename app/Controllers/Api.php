@@ -207,7 +207,7 @@ class Api extends ResourceController
         }
 
         $page = (int) ($this->request->getGet('page') ?? 1);
-        $perPage = (int) ($this->request->getGet('per_page') ?? 10);
+        $perPage = (int) ($this->request->getGet('per_page') ?? 12);
 
         $model = new \App\Models\DailyPostModel();
 
