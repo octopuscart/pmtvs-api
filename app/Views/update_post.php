@@ -40,7 +40,14 @@ $isUpdate = isset($post) && !empty($post['id']);
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Date:</label>
-                            <input type="date" name="date" class="form-control" required value="<?= esc($post['date'] ?? date('Y-m-d')) ?>">
+                            <?php 
+                            if (isset($post['date']) && $post['date']) {
+                                $post['date'] = date('Y-m-d', strtotime($post['date']));
+                            } else {
+                                $post['date'] = date('Y-m-d');
+                            }
+                            ?>
+                            <input type="date" name="date" class="form-control" required value="<?= esc($post['date']) ?>">
                         </div>
                         <button type="submit" class="btn btn-success w-100"><?= $isUpdate ? 'Update' : 'Create' ?> Post</button>
                     </form>
