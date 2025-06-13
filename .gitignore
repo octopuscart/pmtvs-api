@@ -1,3 +1,4 @@
 /public/uploads/*
+/public/post_uploads/*
 !.gitignore
 /writable/debugbar/*

@@ -94,7 +94,7 @@
         e.preventDefault();
         const form = e.target;
         const data = new FormData(form);
-        data.append('type', 'post');
+        data.append('type', 'member');
         const resultDiv = document.getElementById('imageUploadResult');
         const imageDiv = document.getElementById('uploadedImage');
         resultDiv.textContent = '';
