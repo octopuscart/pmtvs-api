@@ -2,3 +2,5 @@
 /public/post_uploads/*
 !.gitignore
 /writable/debugbar/*
+/writable/session/*
+/writable/logs/*

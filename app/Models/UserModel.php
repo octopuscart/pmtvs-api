@@ -4,9 +4,7 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table      = 'members';
-    protected $primaryKey = 'id';
-
-    protected $allowedFields = ['name', 'position_id', 'position_category_id', 'address', 'image'];
-    protected $useTimestamps = false;
+    protected $table = 'users';
+    protected $allowedFields = ['username', 'password'];
+    protected $useTimestamps = true;
 }

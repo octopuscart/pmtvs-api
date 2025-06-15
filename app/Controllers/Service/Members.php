@@ -2,7 +2,7 @@
 
 namespace App\Controllers\Service;
 
-use App\Models\UserModel;
+use App\Models\MemberModel;
 use App\Models\PositionsModel;
 use App\Models\PositionCategoryModel;
 use CodeIgniter\Controller;
@@ -14,18 +14,18 @@ class Members extends Controller
      */
     public function listMembers()
     {
-        $userModel = new UserModel();
-        $members = $userModel->orderBy('id', 'DESC')->findAll();
+        $MemberModel = new MemberModel();
+        $members = $MemberModel->orderBy('id', 'DESC')->findAll();
 
         return view('list_members');
     }
     // Show update member form
     public function showUpdateMemberForm($id = 0)
     {
-        $userModel = new UserModel();
+        $MemberModel = new MemberModel();
         $positions = (new PositionsModel())->orderBy('display_index', 'ASC')->findAll();
         $categories = (new PositionCategoryModel())->orderBy('display_index', 'ASC')->findAll();
-        $member = $userModel->find($id);
+        $member = $MemberModel->find($id);
         if (!$member) {
             $member = [
                 'id' => 0,
@@ -46,7 +46,7 @@ class Members extends Controller
     // Update member
     public function updateMember($id)
     {
-        $userModel = new UserModel();
+        $MemberModel = new MemberModel();
         $data = [
             'name' => $this->request->getPost('name'),
             'position_id' => $this->request->getPost('position_id'),
@@ -54,7 +54,7 @@ class Members extends Controller
             'address' => $this->request->getPost('address'),
             'image' => $this->request->getPost('image'),
         ];
-        $userModel->update($id, $data);
+        $MemberModel->update($id, $data);
         return redirect()->to(site_url('members/list'))->with('success', 'Member updated!');
     }
 }
