@@ -27,7 +27,7 @@ class Api extends ResourceController
             return $this->fail($this->validator->getErrors(), 400);
         }
 
-        $userModel = new \App\Models\UserModel();
+        $MemberModel = new \App\Models\MemberModel();
         $id = $this->request->getPost('id');
 
         $data = [
@@ -40,12 +40,12 @@ class Api extends ResourceController
 
         if ($id) {
             // Update existing member
-            $userModel->update($id, $data);
+            $MemberModel->update($id, $data);
             $message = 'Member updated successfully';
         } else {
             // Create new member
-            $userModel->insert($data);
-            $id = $userModel->getInsertID();
+            $MemberModel->insert($data);
+            $id = $MemberModel->getInsertID();
             $message = 'Member created successfully';
         }
         return $this->respond([
