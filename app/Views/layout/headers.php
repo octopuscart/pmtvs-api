@@ -40,25 +40,29 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('create-member') ?>">Create Member</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="positionDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Position
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="positionDropdown">
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="<?= site_url('position-categories?type=positions') ?>">Position Management</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="<?= site_url('position-categories') ?>">Position Category
+                                        Management</a>
+                                </li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('list-post') ?>">Post List</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('create-post') ?>">Create post</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="positionDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Position
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="positionDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="<?= site_url('position-categories?type=positions') ?>">Position Management</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="<?= site_url('position-categories') ?>">Position Category Management</a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('logout') ?>">Logout</a>
                         </li>
