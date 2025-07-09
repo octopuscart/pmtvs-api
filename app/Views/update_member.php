@@ -68,6 +68,9 @@
                     </form>
                     <div id="result" class="mt-3"></div>
                 </div>
+                <?php if (isset($member)): ?>
+                    <button type="button" class="btn btn-danger w-100 mt-2" id="removeMemberBtn">Remove Member</button>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -111,7 +114,7 @@
             resultDiv.textContent = 'Image uploaded successfully!';
             imageDiv.innerHTML = `<p>Uploaded Image:</p><img src="<?= base_url('uploads/'); ?>${result.image}" class="img-thumbnail" width="200">`;
             document.getElementById('hiddenImageField').value = result.image;
-             setMemberFormEnabled(true); // Enable fields after image upload
+            setMemberFormEnabled(true); // Enable fields after image upload
         } else {
             resultDiv.className = "alert alert-danger";
             if (result.messages) {
@@ -125,7 +128,7 @@
             } else {
                 resultDiv.textContent = 'An error occurred.';
             }
-                        setMemberFormEnabled(false); // Keep fields disabled if upload fails
+            setMemberFormEnabled(false); // Keep fields disabled if upload fails
 
         }
     };
@@ -177,6 +180,30 @@
             }
         }
     };
+
+    <?php if (isset($member)): ?>
+        document.getElementById('removeMemberBtn').onclick = async function () {
+            if (!confirm('Are you sure you want to remove this member?')) return;
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = '';
+            const response = await fetch("<?= site_url('api/delete-member') ?>", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: "<?= esc($member['id']) ?>" })
+            });
+            const result = await response.json();
+            if (result.success) {
+                resultDiv.className = "alert alert-success";
+                resultDiv.textContent = 'Member removed successfully! Redirecting...';
+                setTimeout(() => {
+                    window.location.href = "<?= site_url('create-member') ?>";
+                }, 1500);
+            } else {
+                resultDiv.className = "alert alert-danger";
+                resultDiv.textContent = result.error || 'An error occurred.';
+            }
+        };
+    <?php endif; ?>
 </script>
 
 <?= $this->include('layout/footer') ?>

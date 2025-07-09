@@ -16,6 +16,7 @@ $routes->post('position-categories/inline-edit', 'Service\PositionCategory::inli
 $routes->get('create-member', 'Service\Members::showUpdateMemberForm');
 $routes->get('update-member/(:num)', 'Service\Members::showUpdateMemberForm/$1');
 
+
 // Member management routes
 $routes->get('list-post', 'Service\DailyPost::listPosts');
 $routes->get('create-post', 'Service\DailyPost::showUpdatePostForm');
@@ -29,6 +30,7 @@ $routes->get('api/list-daily-posts', 'Api::listDailyPosts');
 $routes->post('api/create-member', 'Api::createMember');
 $routes->post('api/upload-image', 'Api::uploadImage');
 $routes->post('api/create-daily-post', 'Api::createDailyPost');
+$routes->post('api/delete-member', 'Api::deleteMember');
 
 //Authentication routes
 $routes->get('login', 'Auth::login');

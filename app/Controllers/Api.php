@@ -235,4 +235,17 @@ class Api extends ResourceController
             ]
         ]);
     }
+    public function deleteMember()
+    {
+        $data = $this->request->getJSON(true);
+        if (empty($data['id'])) {
+            return $this->fail('Member ID is required', 400);
+        }
+        $MemberModel = new \App\Models\MemberModel();
+        if ($MemberModel->delete($data['id'])) {
+            return $this->respond(['success' => true]);
+        } else {
+            return $this->fail('Failed to delete member', 500);
+        }
+    }
 }
