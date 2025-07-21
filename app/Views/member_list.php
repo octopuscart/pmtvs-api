@@ -71,6 +71,7 @@
                     </div>
                     <div class="card-footer text-center">
                         <a href="<?= site_url('update-member/') ?>${member.id}" class="btn btn-primary">Edit</a>
+                        <button class="btn btn-danger ms-2" onclick="deleteMember(${member.id}, this)">Delete</button>
                     </div>
                 </div>
             `;
@@ -85,6 +86,33 @@
         document.querySelectorAll('#categoryList .list-group-item').forEach(el => el.classList.remove('active'));
         li.classList.add('active');
         fetchMembers(id);
+    }
+
+    async function deleteMember(id, btn) {
+        if (!confirm('Are you sure you want to delete this member?')) return;
+        btn.disabled = true;
+        btn.textContent = 'Deleting...';
+        try {
+            const res = await fetch('<?= site_url('api/delete-member') ?>', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id })
+            });
+            const data = await res.json();
+            if (data.success) {
+                fetchMembers(document.querySelector('#categoryList .active').dataset.id);
+            } else {
+                alert(data.message || 'Failed to delete member.');
+                btn.disabled = false;
+                btn.textContent = 'Delete';
+            }
+        } catch (e) {
+            alert('Error deleting member.');
+            btn.disabled = false;
+            btn.textContent = 'Delete';
+        }
     }
 
     // Initial load
