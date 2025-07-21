@@ -289,6 +289,10 @@ class Api extends ResourceController
 
     public function listDocuments()
     {
+        header('Access-Control-Allow-Origin: *');
+        header('Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE');
+        header('Access-Control-Allow-Headers: Content-Type, Authorization');
+        
         $docModel = new \App\Models\DocumentModel();
         $docs = $docModel->orderBy('uploaded_at', 'DESC')->findAll();
         return $this->respond([
