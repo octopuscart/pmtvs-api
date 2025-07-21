@@ -36,4 +36,13 @@ class DailyPost extends Controller
         ]);
     }
 
+    public function showUploadBillDocForm()
+    {
+        return view('upload_bill_doc');
+    }
+
+    public function listDocs()
+    {
+        return view('list_docs');
+    }
 }

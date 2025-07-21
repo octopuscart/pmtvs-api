@@ -62,6 +62,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('create-post') ?>">Create post</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= site_url('list-docs') ?>">Documents</a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link" href="<?= site_url('logout') ?>">Logout</a>

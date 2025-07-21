@@ -248,4 +248,52 @@ class Api extends ResourceController
             return $this->fail('Failed to delete member', 500);
         }
     }
+
+    public function uploadBillDoc()
+    {
+        helper(['form', 'url']);
+        $validationRule = [
+            'file' => [
+                'rules' => 'uploaded[file]|ext_in[file,pdf,jpg,jpeg,png,gif]|max_size[file,4096]',
+                'errors' => []
+            ],
+        ];
+        if (!$this->validate($validationRule)) {
+            return $this->fail($this->validator->getErrors(), 400);
+        }
+        $file = $this->request->getFile('file');
+        $type = $file->getClientMimeType();
+        $folder = 'uploads/doc';
+        $newName = $file->getRandomName();
+        if ($file->isValid() && !$file->hasMoved()) {
+            $file->move(ROOTPATH . 'public/' . $folder, $newName);
+        } else {
+            return $this->fail('File upload failed', 500);
+        }
+        $url = base_url($folder . '/' . $newName);
+        // Insert into DB
+        $docModel = new \App\Models\DocumentModel();
+        $docModel->insert([
+            'filename' => $newName,
+            'type' => $type,
+            'url' => $url,
+            'uploaded_at' => date('Y-m-d H:i:s'),
+        ]);
+        return $this->respond([
+            'success' => true,
+            'file' => $newName,
+            'url' => $url,
+            'type' => $type
+        ]);
+    }
+
+    public function listDocuments()
+    {
+        $docModel = new \App\Models\DocumentModel();
+        $docs = $docModel->orderBy('uploaded_at', 'DESC')->findAll();
+        return $this->respond([
+            'success' => true,
+            'documents' => $docs
+        ]);
+    }
 }

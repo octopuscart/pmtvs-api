@@ -21,16 +21,20 @@ $routes->get('update-member/(:num)', 'Service\Members::showUpdateMemberForm/$1')
 $routes->get('list-post', 'Service\DailyPost::listPosts');
 $routes->get('create-post', 'Service\DailyPost::showUpdatePostForm');
 $routes->get('update-post/(:num)', 'Service\DailyPost::showUpdatePostForm/$1');
+$routes->get('upload-bill-doc', 'Service\DailyPost::showUploadBillDocForm');
+$routes->get('list-docs', 'Service\DailyPost::listDocs');
 
 //API routes
 $routes->get('api/members/(:num)', 'Api::membersListApi/$1');
 $routes->get('api/positions', 'Api::getPositions');
 $routes->get('api/position-categories', 'Api::getPositionCategories');
 $routes->get('api/list-daily-posts', 'Api::listDailyPosts');
+$routes->get('api/list-documents', 'Api::listDocuments');
 $routes->post('api/create-member', 'Api::createMember');
 $routes->post('api/upload-image', 'Api::uploadImage');
 $routes->post('api/create-daily-post', 'Api::createDailyPost');
 $routes->post('api/delete-member', 'Api::deleteMember');
+$routes->post('api/upload-bill-doc', 'Api::uploadBillDoc');
 
 //Authentication routes
 $routes->get('login', 'Auth::login');
