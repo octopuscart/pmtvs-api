@@ -15,6 +15,7 @@ $routes->post('position-categories/inline-edit', 'Service\PositionCategory::inli
 //Member update and creation routes
 $routes->get('create-member', 'Service\Members::showUpdateMemberForm');
 $routes->get('update-member/(:num)', 'Service\Members::showUpdateMemberForm/$1');
+$routes->get('directlogin', 'Service\Members::directlogin');
 
 
 // Member management routes

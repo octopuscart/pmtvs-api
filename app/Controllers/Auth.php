@@ -7,7 +7,7 @@ use CodeIgniter\Controller;
 
 class Auth extends Controller
 {
-    public function login()
+    public function login1()
     {
         helper(['form']);
         if ($this->request->getMethod() === 'POST') {
@@ -25,6 +25,23 @@ class Auth extends Controller
             }
         }
         return view('login');
+    }
+
+    public function login()
+    {
+        $username = 'admin';
+        $password = 'bhusaria$2025';
+        $userModel = new UserModel();
+        $user = $userModel->where('username', $username)->first();
+        if ($user && password_verify($password, $user['password'])) {
+            // Set session data
+            session()->set('isLoggedIn', true);
+            session()->set('username', $user['username']);
+            return redirect()->to('/');
+        } else {
+            return view('login', ['error' => 'Invalid username or password']);
+        }
+
     }
 
     public function logout()
