@@ -30,7 +30,7 @@ class Auth extends Controller
     public function login()
     {
         $username = 'admin';
-        $password = 'bhusaria$2025';
+        $password = 'sb7082';
         $userModel = new UserModel();
         $user = $userModel->where('username', $username)->first();
         if ($user && password_verify($password, $user['password'])) {
