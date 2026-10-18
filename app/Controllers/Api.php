@@ -142,7 +142,12 @@ class Api extends ResourceController
             exit(0);
         }
 
-        $categories = (new \App\Models\PositionCategoryModel())->orderBy('display_index', 'ASC')->findAll();
+        $categories = (new \App\Models\PositionCategoryModel())
+            ->whereNotIn('id', static function ($builder) {
+                $builder->select('position_category_id')->from('members');
+            })
+            ->orderBy('display_index', 'ASC')
+            ->findAll();
         return $this->respond([
             'success' => true,
             'categories' => $categories
