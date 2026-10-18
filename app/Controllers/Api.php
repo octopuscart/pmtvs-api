@@ -142,10 +142,11 @@ class Api extends ResourceController
             exit(0);
         }
 
+        $memberCategories = \Config\Database::connect()
+            ->table('members')
+            ->select('position_category_id');
         $categories = (new \App\Models\PositionCategoryModel())
-            ->whereIn('id', static function ($builder) {
-                $builder->select('position_category_id')->from('members');
-            })
+            ->whereIn('id', $memberCategories)
             ->orderBy('display_index', 'ASC')
             ->findAll();
         return $this->respond([
