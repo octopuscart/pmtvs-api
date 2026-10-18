@@ -143,7 +143,7 @@ class Api extends ResourceController
         }
 
         $categories = (new \App\Models\PositionCategoryModel())
-            ->whereNotIn('id', static function ($builder) {
+            ->whereIn('id', static function ($builder) {
                 $builder->select('position_category_id')->from('members');
             })
             ->orderBy('display_index', 'ASC')
